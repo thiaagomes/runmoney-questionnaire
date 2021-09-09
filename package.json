@@ -19,12 +19,16 @@
   },
   "homepage": "https://github.com/thiaagomes/runmoney-questionnaire#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "consign": "^0.1.6",
-    "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "body-parser": "^1.19.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.12"
+    "aws-sdk": "^2.985.0",
+    "consign": "^0.1.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jest": "^27.1.1",
+    "nodemon": "^2.0.12",
+    "uuid": "^8.3.2",
+    "winston": "^3.3.3"
   }
 }

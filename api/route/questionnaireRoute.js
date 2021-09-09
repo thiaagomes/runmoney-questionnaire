@@ -4,6 +4,6 @@ const corsOptions = require('../factory/corsFactory');
 
 module.exports = app => {
     app.route('/api/v1/questionnaire')
-    .get(_questionnaireController.getUser,cors(corsOptions))
-    // .post(_userController.registerUser,cors(corsOptions))
+    .get(_questionnaireController.getQuestionnaire,cors(corsOptions))
+    .put(_questionnaireController.putQuestionnaire,cors(corsOptions))
 }
