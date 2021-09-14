@@ -10,8 +10,8 @@ module.exports = questionnaireController = () => {
                 resp.status(data.status).json(data);
             }
         });
-        resp.status(200).json("Teste Get");
     }
+
 
     questionnaireController.putQuestionnaire = (req, resp) => {
             _questionnaireService.putQuestionnaireService(req,(err,data) => {
@@ -21,11 +21,30 @@ module.exports = questionnaireController = () => {
                 resp.status(data.status).json(data);
             }
         });
-
-        resp.status(201).json("Teste Put");
     
     } 
 
+    questionnaireController.registerQuestionnaire = (req,resp) => {
+        _userService.registerQuestionnaireService(req,(err,data) => {
+            if(!!err){
+                resp.status(err.status).json(err);
+            } else{
+                resp.status(data.status).json(data);
+            }
+        });
+    }
+
+    questionnaireController.deleteQuestionnaire = (req, resp) => {
+        _questionnaireService.deleteQuestionnaireService(req,(err,data) => {
+        if(!!err){
+            resp.status(err.status).json(err);
+        } else{
+            resp.status(data.status).json(data);
+        }
+    });
+
+    } 
+    
     return questionnaireController;
 }
 

@@ -2,6 +2,8 @@ const express    = require('express');
 const bodyParser = require('body-parser');
 const consign    = require('consign');
 const cors = require('cors');
+const _connectionDbFactory = require('../api/factory/connectionDbFactory');
+const _uuid = require('../api/factory/uuidFactory');
 
 module.exports = () => {
   const app = express();
@@ -10,9 +12,11 @@ module.exports = () => {
   app.set('port', process.env.PORT || '3000');
 
   // MIDDLEWARES
-  app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({extended:true}));
+  app.use(express.json());
+  app.use(express.urlencoded({extended:true}));
   app.use(cors());
+  app.use(_connectionDbFactory());
+  app.use(_uuid());
 
   consign({cwd: 'api'})
     .then('controller')
