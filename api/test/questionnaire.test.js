@@ -42,7 +42,7 @@
 //             done(err);
 //         }
 //     }
-//     _user.getEventsPerUserService({query:{user:"leo"},connectionDB:new DynamoDB()},callback);
+//     _user.getEventsPerUserService({query:{user:"Thiago"},connectionDB:new DynamoDB()},callback);
 // });
 
 // test('Testando registro/update do usuario no dynamodb', done => {

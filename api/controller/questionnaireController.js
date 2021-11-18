@@ -2,7 +2,7 @@ const _questionnaireService = require("../service/questionnaireService");
 
 module.exports = questionnaireController = () => {
     
-    questionnaireController.getQuestionnaire = (req,resp) => {
+    questionnaireController.getQuestionnaire = (req,resp) => {  
         _questionnaireService.getQuestionnaire(req,(err,data) => {
             if(!!err){
                 resp.status(err.status).json(err);
@@ -13,8 +13,9 @@ module.exports = questionnaireController = () => {
     }
 
 
-    questionnaireController.putQuestionnaire = (req, resp) => {
-            _questionnaireService.putQuestionnaireService(req,(err,data) => {
+    questionnaireController.postQuestionnaire = (req, resp) => {
+        console.log(req.body)
+            _questionnaireService.postQuestionnaireService(req,(err,data) => {
             if(!!err){
                 resp.status(err.status).json(err);
             } else{

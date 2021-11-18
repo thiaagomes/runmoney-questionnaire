@@ -2,11 +2,18 @@ const _responseFactory = require('../factory/responseFactory');
 const _logFactory = require('../factory/logFactory');
 const _api = "questionnaireService";
 const _questionnaireDAO = require('../dao/questionnaireDAO');
-const { TestWatcher } = require('@jest/core');
-const _questionnaireService = {}; 
+const _questionnaireService = {};
+const axios = require('axios');
+// const body = 
+// {
+//     "pk": "01",
+//     "sk":"02"
+// }; 
 
 _questionnaireService.getQuestionnaire = (req,callback) => {
+
     let _functionName = "getQuestionnaireService";
+
     try {
         _logFactory.generateInfoLog({message:`Inicio do processo da funcao ${_functionName}`,api:_api,functionName:_functionName,uuid:req.uuid});
         _questionnaireDAO.getQuestionnaireDAO({connectionDB:req.connectionDB,uuid:req.uuid},req.query.id)
@@ -45,11 +52,11 @@ _questionnaireService.registerQuestionnaireService = (req,callback) => {
     }
 }  
 
-_questionnaireService.putQuestionnaire = (req,callback) => {
-    let _functionName = "putQuestionnaireService";
+_questionnaireService.postQuestionnaireService = (req,callback) => {
+    let _functionName = "postQuestionnaireService";
     try {
         _logFactory.generateInfoLog({message:`Inicio do processo da funcao ${_functionName}`,api:_api,functionName:_functionName,uuid:req.uuid});
-        _questionnaireDAO.putQuestionnaireDAO({connectionDB:req.connectionDB,uuid:req.uuid},req.body.user)
+        _questionnaireDAO.postQuestionnaireDAO({connectionDB:req.connectionDB,uuid:req.uuid},req.body.questionnaire)
         .then(data =>{
             callback(undefined, _responseFactory.successResponse(data,_api,_functionName));
         })
@@ -64,12 +71,11 @@ _questionnaireService.putQuestionnaire = (req,callback) => {
 
     }
 }  
-
-_questionnaireService.deleteQuestionnaire = (req,callback) => {
+_questionnaireService.deleteQuestionnaireService = (req,callback) => {
     let _functionName = "deleteQuestionnaireService";
     try {
         _logFactory.generateInfoLog({message:`Inicio do processo da funcao ${_functionName}`,api:_api,functionName:_functionName,uuid:req.uuid});
-        _questionnaireDAO.deleteQuestionnaireDAO({connectionDB:req.connectionDB,uuid:req.uuid},req.body.user)
+        _questionnaireDAO.deleteQuestionnaireDAO({connectionDB:req.connectionDB,uuid:req.uuid},req.body.questionnaire)
         .then(data =>{
             callback(undefined, _responseFactory.successResponse(data,_api,_functionName));
         })
@@ -85,18 +91,5 @@ _questionnaireService.deleteQuestionnaire = (req,callback) => {
     }
 }  
 
-// _questionnaireService.authUser = (req,callback) => {
-//     let _functionName = "authUser";
-//     let body = req.body;
-//     _logFactory.generateInfoLog({message:`Inicio do processo da funcao ${_functionName}`,api:_api,functionName:_functionName});
-//     if (body.user == "thiaagomes1@gmail.com" && body.password == "120193Thi*")
-//         callback(undefined, _responseFactory.successResponse("msg de retorno que eu quiser ou obejto",_api,_functionName));
-//     else 
-//         callback( _responseFactory.errorResponse("msg de erro de retorno que eu quiser ou obejto",401,_api,_functionName),undefined);
-
-// }
-
 module.exports = _questionnaireService;
-
-
 

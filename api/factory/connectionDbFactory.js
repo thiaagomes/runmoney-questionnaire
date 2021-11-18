@@ -5,7 +5,7 @@ module.exports = () => (req,res,next) => {
         endpoint:"https://dynamodb.sa-east-1.amazonaws.com"
     });
     //inclui a conexao na requisicao para uso.
-    req.connectionDB = new AWS.DynamoDB();
+    req.connectionDB = new AWS.DynamoDB.DocumentClient();
     // passa para o proximo middleware
     next();
 }

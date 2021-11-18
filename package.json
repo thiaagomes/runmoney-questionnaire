@@ -19,7 +19,11 @@
   },
   "homepage": "https://github.com/thiaagomes/runmoney-questionnaire#readme",
   "dependencies": {
-    "body-parser": "^1.19.0"
+    "axios": "^0.22.0",
+    "body-parser": "^1.19.0",
+    "npm": "^7.24.1",
+    "update": "^0.7.4",
+    "yarn": "^1.22.15"
   },
   "devDependencies": {
     "aws-sdk": "^2.985.0",

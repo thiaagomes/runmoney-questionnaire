@@ -5,7 +5,7 @@ const corsOptions = require('../factory/corsFactory');
 module.exports = app => {
     app.route('/api/v1/questionnaire')
     .get(_questionnaireController.getQuestionnaire,cors(corsOptions))
-    .put(_questionnaireController.putQuestionnaire,cors(corsOptions))
+    .post(_questionnaireController.postQuestionnaire,cors(corsOptions))
     .put(_questionnaireController.registerQuestionnaire,cors(corsOptions))
     .delete(_questionnaireController.deleteQuestionnaire,cors(corsOptions))
 }
